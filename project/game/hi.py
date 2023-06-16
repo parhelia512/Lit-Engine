@@ -3,7 +3,7 @@ import camera_module
 
 
 
-velocity = .1
+velocity = .01
 entity.name = str(entity.position.x)
 
 
@@ -32,7 +32,10 @@ if (IsKeyDown(KeyboardKey.KEY_R)):
 if (IsKeyDown(KeyboardKey.KEY_W) and IsKeyDown(KeyboardKey.KEY_LEFT_SHIFT)):
     entity.position.x -= 6
 
-#camera.position.x -= 1
+camera.position = collisions_module.Vector3(entity.position.x - 10, entity.position.y + 2, entity.position.z)
+camera.target = collisions_module.Vector3(entity.position.x, entity.position.y, entity.position.z)
+
+
 
 
 
