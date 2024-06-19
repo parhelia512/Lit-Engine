@@ -1,12 +1,16 @@
 {
+    "aoTexturePath": "",
     "color": {
         "a": 1.0,
         "b": 1.0,
         "g": 1.0,
         "r": 1.0
     },
+    "diffuseTexturePath": "project/game/textures/video/202987-919379330_small.mp4",
     "diffuse_intensity": 1.0,
-    "roughness": 0.5,
-    "shininess": 0.5,
+    "normalTexturePath": "",
+    "roughness": 1.0,
+    "roughnessTexturePath": "",
+    "shininess": 1.0,
     "specular_intensity": 1.0
 }
