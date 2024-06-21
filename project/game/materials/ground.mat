@@ -6,11 +6,11 @@
         "g": 1.0,
         "r": 1.0
     },
-    "diffuseTexturePath": "project/game/textures/video/202987-919379330_small.mp4",
+    "diffuseTexturePath": "",
     "diffuse_intensity": 1.0,
     "normalTexturePath": "",
-    "roughness": 1.0,
+    "roughness": 0.5,
     "roughnessTexturePath": "",
-    "shininess": 1.0,
-    "specular_intensity": 1.0
+    "shininess": 0.5,
+    "specular_intensity": 0.5
 }
