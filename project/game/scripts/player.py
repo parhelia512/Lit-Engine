@@ -60,19 +60,11 @@ def change_gravity():
 
     physics.gravity = direction_to_center
 
-
-
 def check_ground():
     global grounded
     halfScale = entity.scale.y / 2
     ray = Raycast(entity.position - Vector3(0, halfScale - 0.1, 0), Vector3(0, -1, 0), ignore=[entity])
     grounded = ray.hit and ray.distance < 0.15  # floating pointers margin
-
-def set_entity_rotation():
-    global yaw
-    front = get_camera_direction()
-    entity_rotation_yaw = math.degrees(math.atan2(front.z, front.x)) + 90
-    entity.rotation = Vector3(0, -entity_rotation_yaw, 0)
 
 def handle_movement():
     global yaw, pitch, grounded
@@ -100,6 +92,7 @@ def update():
     check_ground()
     set_entity_rotation()
     change_gravity()
+
 
 
 
