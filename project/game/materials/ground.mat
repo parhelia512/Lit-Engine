@@ -1,15 +1,15 @@
 {
-    "aoTexturePath": "project/game/textures/desert/as_ao.png",
+    "aoTexturePath": "",
     "color": {
         "a": 1.0,
-        "b": 1.0,
-        "g": 1.0,
-        "r": 1.0
+        "b": 0.7822580337524414,
+        "g": 0.7822580337524414,
+        "r": 0.7822580337524414
     },
-    "diffuseTexturePath": "project/game/textures/groud/diff.jpg",
+    "diffuseTexturePath": "",
     "diffuse_intensity": 1.0,
-    "normalTexturePath": "project/game/textures/groud/normal.jpg",
+    "normalTexturePath": "",
     "roughness": 0.0,
     "roughnessTexturePath": "",
-    "specular_intensity": 1.0
+    "specular_intensity": 0.03500000014901161
 }

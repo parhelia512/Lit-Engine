@@ -1,7 +1,7 @@
 import math
 
 # Constants
-VELOCITY = 40
+VELOCITY = 80
 SENSITIVITY = 0.3
 ENTITY_DISTANCE = 5
 JUMP_FORCE = 100
@@ -11,13 +11,10 @@ FOV_BACKWARD = 40
 
 # Initial values
 yaw, pitch = 0, 0
-grounded = False
 entity.visible = True
-
 
 LockMouse()
 
-# Helper functions
 def spherical_to_cartesian(radius, yaw, pitch):
     x = radius * math.cos(math.radians(yaw)) * math.cos(math.radians(pitch))
     y = radius * math.sin(math.radians(pitch))
@@ -26,7 +23,6 @@ def spherical_to_cartesian(radius, yaw, pitch):
 
 def get_camera_direction():
     direction = camera.front
-
     return direction
 
 def is_moving_forward_backwards():
@@ -49,25 +45,18 @@ def update_camera_rotation():
 def update_camera_position():
     global yaw, pitch
     front = spherical_to_cartesian(ENTITY_DISTANCE, -yaw, -pitch)
-    camera.position = entity.position + front
+    camera.position = entity.position + front * 4
     camera.look_at = entity.position
-    camera.up = Vector3(0, 1, 0)
 
 def change_gravity():
     GRAVITY_STRENGTH = 9.8
     center_point = Vector3(0, 0, 0)
     direction_to_center = center_point - entity.position
 
-    physics.gravity = direction_to_center
-
-def check_ground():
-    global grounded
-    halfScale = entity.scale.y / 2
-    ray = Raycast(entity.position - Vector3(0, halfScale - 0.1, 0), Vector3(0, -1, 0), ignore=[entity])
-    grounded = ray.hit and ray.distance < 0.15  # floating pointers margin
+    physics.gravity = direction_to_center / 5
 
 def handle_movement():
-    global yaw, pitch, grounded
+    global yaw, pitch
 
     direction = get_camera_direction()
 
@@ -80,18 +69,16 @@ def handle_movement():
     if IsKeyDown(KeyboardKey.KEY_D):
         entity.applyImpulse(camera.right * time.dt * VELOCITY)
     
-    if IsKeyPressed(KeyboardKey.KEY_SPACE) and grounded:
-        entity.applyImpulse(Vector3(0, JUMP_FORCE, 0))
-
     update_camera_fovy()
 
 def update():
     handle_movement()
     update_camera_rotation()
     update_camera_position()
-    check_ground()
-    set_entity_rotation()
     change_gravity()
+
+
+
 
 
 
